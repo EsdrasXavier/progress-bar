@@ -1,10 +1,15 @@
 var width = 0;
-var timer;
+var timer = 0;
 
 var progressBarLib = (function () {
   
   function move() {
-    timer = setTimeout(move, 50);
+    if(timer == 0) chargerBar();
+    else return false;
+  }
+  
+  function chargerBar() {
+    timer = setTimeout(chargerBar, 50);
     
     var bar = document.getElementsByClassName("progress-bar")[0];
     var value = document.getElementsByClassName("value")[0];
@@ -13,8 +18,6 @@ var progressBarLib = (function () {
       width++; 
       bar.style.width = width + '%';
       value.innerHTML = width + "%";
-    }else {
-      clearInterval(timer);
     }
   }
   
@@ -23,7 +26,8 @@ var progressBarLib = (function () {
     var value = document.getElementsByClassName("value")[0];
     
     window.clearTimeout(timer);
-    
+    timer = 0;
+        
     bar.style.width = "0%";
     width = 0;
     value.innerHTML = "0%";
@@ -31,6 +35,7 @@ var progressBarLib = (function () {
   
   return {
     move: move,
-    reset: reset
+    reset: reset,
+    chargerBar: chargerBar
   }
 })();
