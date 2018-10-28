@@ -2,19 +2,20 @@
   <head>
     <meta charset="UTF-8" />
     <title>Progress Bar</title>
-    
+
     <link rel="stylesheet" text="text/css" href="style/style.css" />
-    <script type="text/javascript" src="js/script.js"></script>
   </head>
-  
+
   <body>
-    
-    <button class="start-bar" onclick="progressBarLib.move();"> Start </button>
-    <button class="start-bar" onclick="progressBarLib.reset();"> Reset </button>
-    
+
+    <button class="start-bar" onclick="fazTudo()"> Start </button>
+    <button class="start-bar" onclick="reset()"> Reset </button>
+
     <div class="main-bar">
       <p class="value">0%</p>
       <div class="progress-bar"></div>
     </div>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>
